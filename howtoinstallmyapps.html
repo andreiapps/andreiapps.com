@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>How to install my apps</title>
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/apps.html">Apps</a>
+        <a href="/contact.html">Contact</a>
+        <a class="active">How to install my apps</a>
+    </div>
+    <h1 class="heading">How to install my apps</h1>
+    <h1 class="heading">How to install APK(Android apps)</h1>
+    <h1 class="paragraph">My Android apps, such as Die Simulator, Guess The Number and Pong, also come in APK format. If you don't know what is APK, I will explain you.<br>APK is an alternative file format used to distribute Android apps outside of Google Play.<br>Below is a video that shows you how to install APK, using Pong as an example:</h1>
+    <div style="text-align:center"><video width="400" height="600" controls>
+        <source src="howtoinstallapk.mp4" type="video/mp4">
+        Sorry, you can't view the video. Try using another browser.
+    </video></div>
+    <h1 class="paragraph">Note: Once you enable the setting that allows you to install APK files for the first time, it won't ask you to enable it the next times, no matter what app you install(as long as you use the same browser, on some devices it will ask you one time for each app that you use)</h1>
+    <h1 class="heading">How to install my Linux apps</h1>
+    <h1 class="paragraph">There are 2 ways of installing my Linux apps. The first one is recommended, but if it doesn't work, then you can try the second one<br></h1>
+    <h1>1. Using a package manager:<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;The following steps need to be executed in a terminal, which most of the time can be opened by hitting the Ctrl, Alt and T keys at the same time<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;For Debian-based Linux distributions(Debian, Ubuntu, Linux Mint etc.):<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you're installing my apps for the first time, you will need to add my repository, so that you can install my apps from it:<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check if you have wget installed. You will use it to download the repository key:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">wget --version</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If it says something like "wget: command not found", then run the command below to install wget:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">sudo apt-get install wget</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a directory(folder) for the repository key:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">sudo mkdir -p /etc/apt/keyrings</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download and add the repository key:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">sudo wget -qO /etc/apt/keyrings/andreiapps.public https://andreiapps.com/repos/pgp-key.public</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configure APT so that it will find the repository:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">echo "deb [arch=all signed-by=/etc/apt/keyrings/andreiapps.public] https://andreiapps.com/repos/apt stable main | sudo tee /etc/apt/sources.list.d/andreiapps.list"</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now you can install my apps using APT!</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After adding my repository, you can install any of my apps that I added to the repository by running the following command in the terminal:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">sudo apt-get install [appname]</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Replace [appname] with "guessthenumber"(without the double quotes) for Guess The Number. I will add other apps soon.</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If, when installing Guess The Number, there is a line that says "E: Unable to correct problems, you have held broken packages.", run "sudo apt-get install openjdk-17-jre" and run "sudo apt-get install guessthenumber" again, and now it should work.<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;For Red Hat-based distributions(Fedora, RHEL, etc.):<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you're installing my apps for the first time, you have to add my repository, so that you can install my apps from it:<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check if you have wget installed. You will use it to download information about my repository key:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">wget --version</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If it says something like "wget: command not found", then run the command below to install wget:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">sudo dnf install wget</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Define my repository:<br></h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">sudo wget -qO /etc/yum.repos.d/andreiapps.repo https://andreiapps.com/repos/dnf/andreiapps.repo</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add my repository:<br></h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">sudo dnf config-manager --add-repo /etc/yum.repos.d/andreiapps.repo</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now you can install any of my apps that I added to the repository using the following command:<br></h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">sudo dnf install [appname]</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Replace [appname] with "guessthenumber"(without the double quotes) for Guess The Number. I will add other apps soon.<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: if you get an error that your architecture is not supported, then I'm sorry, but I can't support every possible architecture, because there are way too many architecture, but the most common types of arm and x86 architectures are supported.<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;For Arch Linux-based distributions(Arch Linux, Manjaro etc.):<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First of all, check if you have yay installed. That will help you install any of my apps:<br></h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">yay --version</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If it says something similar to "yay: command not found", then install yay:<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install required packages:<br></h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">sudo pacman -S --needed base-devel git</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download yay:<br></h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">git clone https://aur.archlinux.org/yay.git</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install yay:<br></h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">cd yay && makepkg -si</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After you have installed yay, run the following command to install one of my apps:<br></h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">yay -S [appname]</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Replace [appname] with "guessthenumber"(without the double quotes) for Guess The Number. I will add other apps soon.</h1>
+    <h1>2. By downloading the package manually and installing it:<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;For Debian-based distributions(Debian, Ubuntu, Linux Mint etc.):<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Go to the <a href="/apps.html">Apps</a> page and, under the app that you want to install, click the button that says "Download for Debian-based distributions". If there's no such button, please wait until I make the app available for Debian-based Linux distributions.<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After the app has downloaded, open a terminal window by hitting the Ctrl, Alt and T keys at the same time. Then, enter in the directory where you have the file saved. Most of the time it should be Downloads. This is how to enter into Downloads:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">cd Downloads</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you don't know the filename of the app that you want to install, you can run "ls" to see all the files that you've downloaded. Then, once you found the complete filename(it should end in ".deb" without the double quotes), run the following command, replacing [filename] with the filename that you just found:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">dpkg -i [filename]</h1><br>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;For Red Hat-based distributions(Fedora, RHEL etc.), execute the following commands in a terminal, which most of the time can be opened by pressing the Ctrl, Alt and T keys at the same time:<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check if you have wget installed. You will use it to download the app that you want to install:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">wget --version</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If it says something like "wget: command not found", then run the command below to install wget:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">sudo dnf install wget</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download the app for your architecture:<br></h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">wget -q https://andreiapps.com/repos/dnf/packages/[appname]-[arch].rpm && sudo dnf install [appname]*.[arch].rpm/h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Replace [appname] with the package name of the app that you want to install: "guessthenumber"(without the double quotes) for Guess The Number. I will add other apps soon. Replace [arch] with the exact output of "uname -m" when running it in the terminal(without the double quotes). If you get an error that your architecture is not supported, then I'm sorry, but I can't support every possible architecture, because there are way too many architecture, but the most common types of arm and x86 architectures are supported.
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;For Arch Linux-based distributions(Arch Linux, Manjaro etc.):<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Go to the <a href="/apps.html">Apps</a> page and, under the app that you want to install, click the button that says "Download for Arch Linux-based distributions". If there's no such button, please wait until I make the app available for Arch Linux-based Linux distributions.<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After the app has downloaded, open a terminal window by hitting the Ctrl, Alt and T keys at the same time. Then, enter in the directory where you have the file saved. Most of the time it should be Downloads. This is how to enter into Downloads:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">cd Downloads</h1>
+                      <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you don't know the filename of the app that you want to install, you can run "ls" to see all the files that you've downloaded. Then, once you found the complete filename(it should end in ".pkg.tar.zst" without the double quotes), run the following command, replacing [filename] with the filename that you just found:</h1>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="code">sudo pacman -U [filename]</h1><br>
+    <h1>After installing one of my apps, you can launch it from the terminal by typing "guessthenumber"(without the double quotes) for Guess The Number.
+
+</body>
+</html>
