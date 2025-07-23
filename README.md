@@ -1,1 +1,1 @@
-This is the official GitHub repository for andreiapps.com. Please note that I am still in the process of migrating my website to GitHub Pages, so unfortunately you can only download Pong and Guess The Number.
+This is the official GitHub repository for andreiapps.com.
